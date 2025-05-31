@@ -66,6 +66,38 @@
       ]
     },
     {
+      "name": "bitsdojo_window",
+      "version": "0.1.6",
+      "dependencies": [
+        "bitsdojo_window_linux",
+        "bitsdojo_window_macos",
+        "bitsdojo_window_platform_interface",
+        "bitsdojo_window_windows",
+        "flutter"
+      ]
+    },
+    {
+      "name": "window_manager",
+      "version": "0.3.9",
+      "dependencies": [
+        "flutter",
+        "path",
+        "screen_retriever"
+      ]
+    },
+    {
+      "name": "path_provider",
+      "version": "2.1.5",
+      "dependencies": [
+        "flutter",
+        "path_provider_android",
+        "path_provider_foundation",
+        "path_provider_linux",
+        "path_provider_platform_interface",
+        "path_provider_windows"
+      ]
+    },
+    {
       "name": "talker_bloc_logger",
       "version": "2.4.0",
       "dependencies": [
@@ -347,6 +379,96 @@
       ]
     },
     {
+      "name": "bitsdojo_window_linux",
+      "version": "0.1.4",
+      "dependencies": [
+        "bitsdojo_window_platform_interface",
+        "ffi",
+        "flutter"
+      ]
+    },
+    {
+      "name": "bitsdojo_window_macos",
+      "version": "0.1.4",
+      "dependencies": [
+        "bitsdojo_window_platform_interface",
+        "ffi",
+        "flutter"
+      ]
+    },
+    {
+      "name": "bitsdojo_window_windows",
+      "version": "0.1.6",
+      "dependencies": [
+        "bitsdojo_window_platform_interface",
+        "ffi",
+        "flutter",
+        "win32"
+      ]
+    },
+    {
+      "name": "bitsdojo_window_platform_interface",
+      "version": "0.1.2",
+      "dependencies": [
+        "flutter",
+        "meta",
+        "plugin_platform_interface"
+      ]
+    },
+    {
+      "name": "screen_retriever",
+      "version": "0.1.9",
+      "dependencies": [
+        "flutter"
+      ]
+    },
+    {
+      "name": "path_provider_windows",
+      "version": "2.3.0",
+      "dependencies": [
+        "ffi",
+        "flutter",
+        "path",
+        "path_provider_platform_interface"
+      ]
+    },
+    {
+      "name": "path_provider_platform_interface",
+      "version": "2.1.2",
+      "dependencies": [
+        "flutter",
+        "platform",
+        "plugin_platform_interface"
+      ]
+    },
+    {
+      "name": "path_provider_linux",
+      "version": "2.2.1",
+      "dependencies": [
+        "ffi",
+        "flutter",
+        "path",
+        "path_provider_platform_interface",
+        "xdg_directories"
+      ]
+    },
+    {
+      "name": "path_provider_foundation",
+      "version": "2.4.1",
+      "dependencies": [
+        "flutter",
+        "path_provider_platform_interface"
+      ]
+    },
+    {
+      "name": "path_provider_android",
+      "version": "2.2.17",
+      "dependencies": [
+        "flutter",
+        "path_provider_platform_interface"
+      ]
+    },
+    {
       "name": "bloc",
       "version": "8.1.4",
       "dependencies": [
@@ -472,6 +594,26 @@
       "dependencies": []
     },
     {
+      "name": "plugin_platform_interface",
+      "version": "2.1.8",
+      "dependencies": [
+        "meta"
+      ]
+    },
+    {
+      "name": "platform",
+      "version": "3.1.6",
+      "dependencies": []
+    },
+    {
+      "name": "xdg_directories",
+      "version": "1.1.0",
+      "dependencies": [
+        "meta",
+        "path"
+      ]
+    },
+    {
       "name": "ansicolor",
       "version": "2.0.3",
       "dependencies": []
@@ -542,13 +684,6 @@
       ]
     },
     {
-      "name": "plugin_platform_interface",
-      "version": "2.1.8",
-      "dependencies": [
-        "meta"
-      ]
-    },
-    {
       "name": "http_parser",
       "version": "4.1.2",
       "dependencies": [
@@ -556,25 +691,6 @@
         "source_span",
         "string_scanner",
         "typed_data"
-      ]
-    },
-    {
-      "name": "path_provider_windows",
-      "version": "2.3.0",
-      "dependencies": [
-        "ffi",
-        "flutter",
-        "path",
-        "path_provider_platform_interface"
-      ]
-    },
-    {
-      "name": "path_provider_platform_interface",
-      "version": "2.1.2",
-      "dependencies": [
-        "flutter",
-        "platform",
-        "plugin_platform_interface"
       ]
     },
     {
@@ -586,126 +702,10 @@
       ]
     },
     {
-      "name": "path_provider_linux",
-      "version": "2.2.1",
-      "dependencies": [
-        "ffi",
-        "flutter",
-        "path",
-        "path_provider_platform_interface",
-        "xdg_directories"
-      ]
-    },
-    {
       "name": "typed_data",
       "version": "1.4.0",
       "dependencies": [
         "collection"
-      ]
-    },
-    {
-      "name": "platform",
-      "version": "3.1.6",
-      "dependencies": []
-    },
-    {
-      "name": "xdg_directories",
-      "version": "1.1.0",
-      "dependencies": [
-        "meta",
-        "path"
-      ]
-    },
-    {
-      "name": "bitsdojo_window",
-      "version": "0.1.6",
-      "dependencies": [
-        "bitsdojo_window_linux",
-        "bitsdojo_window_macos",
-        "bitsdojo_window_platform_interface",
-        "bitsdojo_window_windows",
-        "flutter"
-      ]
-    },
-    {
-      "name": "bitsdojo_window_windows",
-      "version": "0.1.6",
-      "dependencies": [
-        "bitsdojo_window_platform_interface",
-        "ffi",
-        "flutter",
-        "win32"
-      ]
-    },
-    {
-      "name": "bitsdojo_window_platform_interface",
-      "version": "0.1.2",
-      "dependencies": [
-        "flutter",
-        "meta",
-        "plugin_platform_interface"
-      ]
-    },
-    {
-      "name": "bitsdojo_window_macos",
-      "version": "0.1.4",
-      "dependencies": [
-        "bitsdojo_window_platform_interface",
-        "ffi",
-        "flutter"
-      ]
-    },
-    {
-      "name": "bitsdojo_window_linux",
-      "version": "0.1.4",
-      "dependencies": [
-        "bitsdojo_window_platform_interface",
-        "ffi",
-        "flutter"
-      ]
-    },
-    {
-      "name": "window_manager",
-      "version": "0.3.9",
-      "dependencies": [
-        "flutter",
-        "path",
-        "screen_retriever"
-      ]
-    },
-    {
-      "name": "screen_retriever",
-      "version": "0.1.9",
-      "dependencies": [
-        "flutter"
-      ]
-    },
-    {
-      "name": "path_provider",
-      "version": "2.1.5",
-      "dependencies": [
-        "flutter",
-        "path_provider_android",
-        "path_provider_foundation",
-        "path_provider_linux",
-        "path_provider_platform_interface",
-        "path_provider_windows"
-      ]
-    },
-    {
-      "name": "path_provider_foundation",
-      "version": "2.4.1",
-      "dependencies": [
-        "flutter",
-        "path_provider_platform_interface"
-      ]
-    },
-    {
-      "name": "path_provider_android",
-      "version": "2.2.17",
-      "dependencies": [
-        "flutter",
-        "path_provider_platform_interface"
       ]
     }
   ],

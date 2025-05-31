@@ -38,7 +38,6 @@ import 'package:appflowy_backend/protobuf/flowy-user/protobuf.dart';
 import 'package:appflowy_popover/appflowy_popover.dart';
 import 'package:flowy_infra/file_picker/file_picker_impl.dart';
 import 'package:flowy_infra/file_picker/file_picker_service.dart';
-import 'package:'
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get_it/get_it.dart';
 import 'package:universal_platform/universal_platform.dart';

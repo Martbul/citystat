@@ -1,0 +1,59 @@
+name: citystat_infra_ui
+description: A new flutter plugin project.
+version: 0.0.1
+homepage: https://appflowy.io
+publish_to: "none"
+
+environment:
+  sdk: '^3.8.0'
+  flutter: ">=3.10.1"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Thirdparty packages
+
+  styled_widget: ^0.4.1
+  animations: ^2.0.7
+  loading_indicator: ^3.1.0
+  async:
+  url_launcher: ^6.1.11
+  google_fonts: ^6.1.0
+
+  # Federated Platform Interface
+  citystat_infra_ui_platform_interface:
+    path: citystat_infra_ui_platform_interface
+  citystat_popover:
+    path: ../citystat_popover
+  citystat_infra:
+    path: ../citystat_infra
+  citystat_svg:
+    path: ../citystat_svg
+
+  analyzer: 6.11.0
+
+dev_dependencies:
+  build_runner: ^2.4.9
+  provider: ^6.0.5
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  plugin:
+    platforms:
+      # TODO: uncomment android part will fail the Linux build process, will resolve later
+      # android:
+      #   package: com.example.flowy_infra_ui
+      #   pluginClass: FlowyInfraUIPlugin
+      ios:
+        pluginClass: CitystatInfraUIPlugin
+      macos:
+        pluginClass: CitystatInfraUIPlugin
+      windows:
+        pluginClass: CitystatInfraUIPlugin
+      linux:
+        pluginClass: CitystatInfraUIPlugin
+      web:
+        default_package: citystat_infra_ui_web
