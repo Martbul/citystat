@@ -2,12 +2,12 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:citystat/env/cloud_env.dart';
-import 'package:citystat/plugins/document/presentation/editor_plugins/desktop_toolbar/desktop_floating_toolbar.dart';
-import 'package:citystat/plugins/document/presentation/editor_plugins/desktop_toolbar/link/link_hover_menu.dart';
-import 'package:citystat/util/expand_views.dart';
-import 'package:citystat/workspace/application/settings/prelude.dart';
-import 'package:citystat/appflowy_backend.dart';
-import 'package:appflowy_backend/log.dart';
+// import 'package:citystat/plugins/document/presentation/editor_plugins/desktop_toolbar/desktop_floating_toolbar.dart';
+// import 'package:citystat/plugins/document/presentation/editor_plugins/desktop_toolbar/link/link_hover_menu.dart';
+// import 'package:citystat/util/expand_views.dart';
+// import 'package:citystat/workspace/application/settings/prelude.dart';
+// import 'package:citystat/appflowy_backend.dart';
+import 'package:citystat_backend/log.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
@@ -18,14 +18,12 @@ import 'deps_resolver.dart';
 import 'entry_point.dart';
 import 'launch_configuration.dart';
 import 'plugin/plugin.dart';
-import 'tasks/af_navigator_observer.dart';
-import 'tasks/file_storage_task.dart';
-import 'tasks/prelude.dart';
+// import 'tasks/af_navigator_observer.dart';
+// import 'tasks/file_storage_task.dart';
+// import 'tasks/prelude.dart';
 
-
-
-
-final getIt = GetIt.instance; //This line defines a singleton reference to the GetIt service locator, a dependency injection (DI) library in Dart/Flutter.
+final getIt = GetIt
+    .instance; //This line defines a singleton reference to the GetIt service locator, a dependency injection (DI) library in Dart/Flutter.
 
 Future<void> runAppCityStat({bool isAnon = false}) async {
   Log.info('restart CityStat: isAnon: $isAnon');
@@ -49,17 +47,17 @@ Future<void> runAppCityStat({bool isAnon = false}) async {
   }
 }
 
-
 class CityStatRunner {
   // This variable specifies the initial mode of the app when it is launched for the first time.
   // The same mode will be automatically applied in subsequent executions when the runAppFlowy()
   // method is called.
   static var currentMode = integrationMode();
 
-  static Future<CityStatRunnerContext> run( //Static means that run() can be called on the class itself without creating an instance
-  // the func returns var of type CityStatRunnerContext
-  //Future itself does not indicate that a function is async — rather, it indicates that the function returns a Future object, 
-  //which means the result will be available at some point in the future, not immediately.
+  static Future<CityStatRunnerContext> run(
+    //Static means that run() can be called on the class itself without creating an instance
+    // the func returns var of type CityStatRunnerContext
+    //Future itself does not indicate that a function is async — rather, it indicates that the function returns a Future object,
+    //which means the result will be available at some point in the future, not immediately.
     EntryPoint f,
     IntegrationMode mode, {
     // This callback is triggered after the initialization of 'getIt',
@@ -106,51 +104,48 @@ class CityStatRunner {
     await initGetIt(getIt, mode, f, config);
     await didInitGetItCallback?.call();
 
-    final applicationDataDirectory =
-        await getIt<ApplicationDataStorage>().getPath().then(
-              (value) => Directory(value),
-            );
+    final applicationDataDirectory = await getIt<ApplicationDataStorage>()
+        .getPath()
+        .then((value) => Directory(value));
 
     // add task
     final launcher = getIt<AppLauncher>();
-    launcher.addTasks(
-      [
-        // this task should be first task, for handling platform errors.
-        // don't catch errors in test mode
-        if (!mode.isUnitTest && !mode.isIntegrationTest)
-          const PlatformErrorCatcherTask(),
-        // this task should be second task, for handling memory leak.
-        // there's a flag named _enable in memory_leak_detector.dart. If it's false, the task will be ignored.
-        MemoryLeakDetectorTask(),
-        DebugTask(),
-        const FeatureFlagTask(),
+    launcher.addTasks([
+      // this task should be first task, for handling platform errors.
+      // don't catch errors in test mode
+      if (!mode.isUnitTest && !mode.isIntegrationTest)
+        const PlatformErrorCatcherTask(),
+      // this task should be second task, for handling memory leak.
+      // there's a flag named _enable in memory_leak_detector.dart. If it's false, the task will be ignored.
+      MemoryLeakDetectorTask(),
+      DebugTask(),
+      const FeatureFlagTask(),
 
-        // localization
-        const InitLocalizationTask(),
-        // init the app window
-        InitAppWindowTask(),
-        // Init Rust SDK
-        InitRustSDKTask(customApplicationPath: applicationDataDirectory),
-        // Load Plugins, like document, grid ...
-        const PluginLoadTask(),
-        const FileStorageTask(),
+      // localization
+      const InitLocalizationTask(),
+      // init the app window
+      InitAppWindowTask(),
+      // Init Rust SDK
+      InitRustSDKTask(customApplicationPath: applicationDataDirectory),
+      // Load Plugins, like document, grid ...
+      const PluginLoadTask(),
+      const FileStorageTask(),
 
-        // init the app widget
-        // ignore in test mode
-        if (!mode.isUnitTest) ...[
-          // The DeviceOrApplicationInfoTask should be placed before the AppWidgetTask to fetch the app information.
-          // It is unable to get the device information from the test environment.
-          const ApplicationInfoTask(),
-          // The auto update task should be placed after the ApplicationInfoTask to fetch the latest version.
-          if (!mode.isIntegrationTest) AutoUpdateTask(),
-          const HotKeyTask(),
-          if (isAppFlowyCloudEnabled) InitAppFlowyCloudTask(),
-          const InitAppWidgetTask(),
-          const InitPlatformServiceTask(),
-          const RecentServiceTask(),
-        ],
+      // init the app widget
+      // ignore in test mode
+      if (!mode.isUnitTest) ...[
+        // The DeviceOrApplicationInfoTask should be placed before the AppWidgetTask to fetch the app information.
+        // It is unable to get the device information from the test environment.
+        const ApplicationInfoTask(),
+        // The auto update task should be placed after the ApplicationInfoTask to fetch the latest version.
+        if (!mode.isIntegrationTest) AutoUpdateTask(),
+        const HotKeyTask(),
+        if (isAppFlowyCloudEnabled) InitAppFlowyCloudTask(),
+        const InitAppWidgetTask(),
+        const InitPlatformServiceTask(),
+        const RecentServiceTask(),
       ],
-    );
+    ]);
     await launcher.launch(); // execute the tasks
 
     return FlowyRunnerContext(
@@ -158,8 +153,6 @@ class CityStatRunner {
     );
   }
 }
-
-
 
 Future<void> initGetIt(
   GetIt getIt,
@@ -177,13 +170,7 @@ Future<void> initGetIt(
     },
   );
   getIt.registerLazySingleton<AppLauncher>(
-    () => AppLauncher(
-      context: LaunchContext(
-        getIt,
-        mode,
-        config,
-      ),
-    ),
+    () => AppLauncher(context: LaunchContext(getIt, mode, config)),
     dispose: (launcher) async {
       await launcher.dispose();
     },
@@ -207,10 +194,7 @@ class LaunchContext {
   LaunchConfiguration config;
 }
 
-enum LaunchTaskType {
-  dataProcessing,
-  appLauncher,
-}
+enum LaunchTaskType { dataProcessing, appLauncher }
 
 /// The interface of an app launch task, which will trigger
 /// some nonresident indispensable task in app launching task.
@@ -231,9 +215,7 @@ class LaunchTask {
 }
 
 class AppLauncher {
-  AppLauncher({
-    required this.context,
-  });
+  AppLauncher({required this.context});
 
   final LaunchContext context;
   final List<LaunchTask> tasks = [];
