@@ -1,4 +1,4 @@
-import 'package:appflowy/util/theme_extension.dart';
+import 'package:citystat/util/theme_extension.dart';
 import 'package:flutter/material.dart';
 
 extension SharedColors on BuildContext {

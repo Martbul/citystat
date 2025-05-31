@@ -1,8 +1,8 @@
 import 'dart:ui';
 
-import 'package:appflowy/generated/flowy_svgs.g.dart';
-import 'package:appflowy/generated/locale_keys.g.dart';
-import 'package:appflowy_backend/protobuf/flowy-database2/protobuf.dart';
+import 'package:citystat/generated/flowy_svgs.g.dart';
+import 'package:citystat/generated/locale_keys.g.dart';
+import 'package:citystat_backend/protobuf/flowy-database2/protobuf.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:protobuf/protobuf.dart';
 

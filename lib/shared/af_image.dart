@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-import 'package:appflowy/shared/appflowy_network_image.dart';
-import 'package:appflowy_backend/protobuf/flowy-database2/file_entities.pbenum.dart';
-import 'package:appflowy_backend/protobuf/flowy-user/user_profile.pb.dart';
+import 'package:citystat/shared/appflowy_network_image.dart';
+import 'package:citystat_backend/protobuf/flowy-database2/file_entities.pbenum.dart';
+import 'package:citystat_backend/protobuf/flowy-user/user_profile.pb.dart';
 
 class AFImage extends StatelessWidget {
   const AFImage({

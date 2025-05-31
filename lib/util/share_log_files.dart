@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:appflowy/core/helpers/url_launcher.dart';
-import 'package:appflowy/generated/locale_keys.g.dart';
-import 'package:appflowy/workspace/presentation/widgets/dialogs.dart';
+import 'package:citystat/core/helpers/url_launcher.dart';
+import 'package:citystat/generated/locale_keys.g.dart';
+import 'package:citystat/workspace/presentation/widgets/dialogs.dart';
 import 'package:archive/archive_io.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';

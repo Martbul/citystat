@@ -1,6 +1,6 @@
-import 'package:appflowy/startup/launch_configuration.dart';
-import 'package:appflowy/startup/startup.dart';
-import 'package:appflowy/user/presentation/screens/splash_screen.dart';
+import 'package:citystat/startup/launch_configuration.dart';
+import 'package:citystat/startup/startup.dart';
+import 'package:citystat/user/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 class CityStatApplication implements EntryPoint {

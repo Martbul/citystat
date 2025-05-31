@@ -1,5 +1,5 @@
-import 'package:appflowy/generated/locale_keys.g.dart';
-import 'package:appflowy_backend/protobuf/flowy-user/protobuf.dart';
+import 'package:citystat/generated/locale_keys.g.dart';
+import 'package:citystat_vackend/protobuf/flowy-user/protobuf.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 extension AFRolePBExtension on AFRolePB {

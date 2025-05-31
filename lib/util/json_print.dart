@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:appflowy_backend/log.dart';
+import 'package:citystat/packages/citystat_backend/lib/log.dart';
 import 'package:flutter/material.dart';
 
 const JsonEncoder _encoder = JsonEncoder.withIndent('  ');

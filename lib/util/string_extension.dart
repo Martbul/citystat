@@ -1,9 +1,9 @@
 import 'dart:io';
 
-import 'package:appflowy/shared/icon_emoji_picker/icon.dart';
-import 'package:appflowy/shared/icon_emoji_picker/icon_picker.dart';
-import 'package:appflowy/shared/patterns/common_patterns.dart';
-import 'package:appflowy_editor/appflowy_editor.dart';
+import 'package:citystat/shared/icon_emoji_picker/icon.dart';
+import 'package:citystat/shared/icon_emoji_picker/icon_picker.dart';
+import 'package:citystat/shared/patterns/common_patterns.dart';
+import 'package:citystat_editor/appflowy_editor.dart';
 import 'package:flowy_infra/theme_extension.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Icon;

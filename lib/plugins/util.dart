@@ -1,7 +1,7 @@
-import 'package:citystat/startup/plugin/plugin.dart';
-import 'package:citystat/workspace/application/view/view_listener.dart';
-import 'package:citystat_backend/log.dart';
-import 'package:citystat_backend/protobuf/flowy-folder/view.pb.dart';
+import 'package:appflowy/startup/plugin/plugin.dart';
+import 'package:appflowy/workspace/application/view/view_listener.dart';
+import 'package:appflowy_backend/log.dart';
+import 'package:appflowy_backend/protobuf/flowy-folder/view.pb.dart';
 import 'package:flutter/material.dart';
 
 class ViewPluginNotifier extends PluginNotifier<DeletedViewPB?> {

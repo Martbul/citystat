@@ -1,5 +1,5 @@
-import 'package:appflowy/shared/feature_flags.dart';
-import 'package:appflowy_backend/log.dart';
+import 'package:citystat/shared/feature_flags.dart';
+import 'package:citystat_backend/log.dart';
 import 'package:path_provider/path_provider.dart';
 
 class FlowyCacheManager {

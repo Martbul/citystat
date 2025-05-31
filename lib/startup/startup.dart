@@ -2,12 +2,12 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:citystat/env/cloud_env.dart';
-// import 'package:citystat/plugins/document/presentation/editor_plugins/desktop_toolbar/desktop_floating_toolbar.dart';
-// import 'package:citystat/plugins/document/presentation/editor_plugins/desktop_toolbar/link/link_hover_menu.dart';
-// import 'package:citystat/util/expand_views.dart';
-// import 'package:citystat/workspace/application/settings/prelude.dart';
-// import 'package:citystat/appflowy_backend.dart';
-import 'package:citystat_backend/log.dart';
+import 'package:citystat/plugins/document/presentation/editor_plugins/desktop_toolbar/desktop_floating_toolbar.dart';
+import 'package:citystat/plugins/document/presentation/editor_plugins/desktop_toolbar/link/link_hover_menu.dart';
+import 'package:citystat/util/expand_views.dart';
+import 'package:citystat/workspace/application/settings/prelude.dart';
+import 'package:citystat/packages/citystat_backend/lib/citystat_backend.dart';
+import 'package:citystat/packages/citystat_backend/lib/log.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
@@ -18,12 +18,21 @@ import 'deps_resolver.dart';
 import 'entry_point.dart';
 import 'launch_configuration.dart';
 import 'plugin/plugin.dart';
-// import 'tasks/af_navigator_observer.dart';
-// import 'tasks/file_storage_task.dart';
-// import 'tasks/prelude.dart';
+import 'tasks/af_navigator_observer.dart';
+import 'tasks/file_storage_task.dart';
+import 'tasks/prelude.dart';
 
-final getIt = GetIt
-    .instance; //This line defines a singleton reference to the GetIt service locator, a dependency injection (DI) library in Dart/Flutter.
+final getIt = GetIt.instance; //This line defines a singleton reference to the GetIt service locator, a dependency injection (DI) library in Dart/Flutter.
+
+abstract class EntryPoint {
+  Widget create(LaunchConfiguration config);
+}
+
+class CityStatRunnerContext {
+  CityStatRunnerContext({required this.applicationDataDirectory});
+
+  final Directory applicationDataDirectory;
+}
 
 Future<void> runAppCityStat({bool isAnon = false}) async {
   Log.info('restart CityStat: isAnon: $isAnon');
@@ -53,25 +62,20 @@ class CityStatRunner {
   // method is called.
   static var currentMode = integrationMode();
 
-  static Future<CityStatRunnerContext> run(
-    //Static means that run() can be called on the class itself without creating an instance
+
+
+//Static means that run() can be called on the class itself without creating an instance
     // the func returns var of type CityStatRunnerContext
     //Future itself does not indicate that a function is async — rather, it indicates that the function returns a Future object,
     //which means the result will be available at some point in the future, not immediately.
-    EntryPoint f,
-    IntegrationMode mode, {
     // This callback is triggered after the initialization of 'getIt',
     // which is used for dependency injection throughout the app.
     // If your functionality depends on 'getIt', ensure to register
     // your callback here to execute any necessary actions post-initialization.
-    Future Function()? didInitGetItCallback,
-    // Passing the envs to the backend
-    Map<String, String> Function()? rustEnvsBuilder,
     // Indicate whether the app is running in anonymous mode.
     // Note: when the app is running in anonymous mode, the user no need to
     // sign in, and the app will only save the data in the local storage.
-    bool isAnon = false,
-  }) async {
+  static Future<CityStatRunnerContext> run(EntryPoint f,IntegrationMode mode, { Future Function()? didInitGetItCallback,Map<String, String> Function()? rustEnvsBuilder,bool isAnon = false,}) async {
     currentMode = mode;
 
     // Only set the mode when it's not release mode
@@ -148,7 +152,7 @@ class CityStatRunner {
     ]);
     await launcher.launch(); // execute the tasks
 
-    return FlowyRunnerContext(
+    return CityStatRunnerContext(
       applicationDataDirectory: applicationDataDirectory,
     );
   }

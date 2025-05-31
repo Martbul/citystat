@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:appflowy_backend/log.dart';
-import 'package:appflowy_backend/protobuf/flowy-user/user_profile.pb.dart';
+import 'package:citystat_backend/log.dart';
+import 'package:citystat_backend/protobuf/flowy-user/user_profile.pb.dart';
 
 extension UserProfilePBExtension on UserProfilePB {
   String? get authToken {

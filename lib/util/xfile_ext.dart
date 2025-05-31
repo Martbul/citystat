@@ -1,17 +1,8 @@
-import 'package:appflowy/shared/patterns/file_type_patterns.dart';
-import 'package:appflowy_backend/protobuf/flowy-database2/media_entities.pbenum.dart';
+import 'package:citystat/shared/patterns/file_type_patterns.dart';
+import 'package:citystat_backend/protobuf/flowy-database2/media_entities.pbenum.dart';
 import 'package:cross_file/cross_file.dart';
 
-enum FileType {
-  other,
-  image,
-  link,
-  document,
-  archive,
-  video,
-  audio,
-  text;
-}
+enum FileType { other, image, link, document, archive, video, audio, text }
 
 extension TypeRecognizer on XFile {
   FileType get fileType {
