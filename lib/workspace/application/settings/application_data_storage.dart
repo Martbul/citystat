@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 
-import 'package:citystat/core/config/kv.dart';
-import 'package:citystat/core/config/kv_keys.dart';
-import 'package:citystat/shared/patterns/common_patterns.dart';
-import 'package:citystat/startup/startup.dart';
-import 'package:citystat/packages/citystat_backend/lib/log.dart';
+import 'package:appflowy/core/config/kv.dart';
+import 'package:appflowy/core/config/kv_keys.dart';
+import 'package:appflowy/shared/patterns/common_patterns.dart';
+import 'package:appflowy/startup/startup.dart';
+import 'package:appflowy_backend/log.dart';
 import 'package:path/path.dart' as p;
 
 import '../../../startup/tasks/prelude.dart';
